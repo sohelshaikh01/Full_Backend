@@ -87,8 +87,6 @@ web_modules/
 .next
 out
 
-git remote add origin git@github.com:sohelshaikh01/Full_Backend.git
-
 # Nuxt.js build / generate output
 .nuxt
 dist
