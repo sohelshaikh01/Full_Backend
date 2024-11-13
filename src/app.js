@@ -13,7 +13,7 @@ app.use(cors({
 app.use(express.json({limit: "16kb"}));
 // For coverting things like special characters
 // extended means can given more objects inside objects
-app.use(config.urlEncoded({extended: true, limit: "16kb"}));
+app.use(express.urlencoded({extended: true, limit: "16kb"}));
 
 app.use(express.static("public")); // file folder storing like public(folder name) assests
 
