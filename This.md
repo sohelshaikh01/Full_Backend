@@ -119,7 +119,38 @@ So go in package.json
 
 ## Custom API Responses and API handling
 
+- Creating express app listen after db call
+- Understanding API Requests and Responses
 
+- Earlier in express `body-parser` need to takes json
+- `Multer` is used for file uploading further.
+
+- Using packeges
+cookie-parser
+cors
+
+- Mostly `middleware` are used using `app.use`.
+- We can modify `cors` settings
+
+### Middleware:
+- client hit url and then it get request and res => any res to send
+- To check who is capable to take this response this checking in between is known as middleware
+
+### Elements in API 
+(err, req, res, next)
+- When `next` is used it is about middleware.
+
+### Wrapper utility 
+Creating generalize wrapper function that gets the code and executes in wanted form.
+- Creating utils/`asyncHandler`.
+
+### Standarizing API response and Error Formats
+- Learn node api errors 
+- Overwriting their properties as use
+- utils/`ApiError`.
+- Writing class to overwrite `Error` properties as need.
+
+- Creating another ApiReponse File
 
 ## Notes:
 It is complex project it contains all concept
