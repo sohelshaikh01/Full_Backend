@@ -182,6 +182,36 @@ Access token is not to save in Database
 Refresh token is to save Database
 
 
+## How to Upload Files in Backend
+
+Can upload any files like videos, pdf
+There is no more file upload in fronted in form
+File handling is done on third party services
+
+File upload should be special utility
+
+### Using Cloudinary
+`npm i cloudinary multer` installing both together
+
+We make user to upload file through multer and temp save file on temparory server then this file get send to storing server
+Then remove file from your server
+- This make posible reupload
+- Save from it if file upload fails
+
+Or there is another way to direct upload file
+
+- Configuring Cloudinary Code:
+Writing `uploadOnCloudinary` method in optimal way
+
+- Creating `middleware` using `multer` like utility
+
+
+## Learning About HTTP 
+
+## Guide for Controllers and Routers with Debugging
+
+- Practicing modre controller make good problem solving
+
 
 
 

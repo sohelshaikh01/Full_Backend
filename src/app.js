@@ -20,5 +20,17 @@ app.use(express.static("public")); // file folder storing like public(folder nam
 app.use(cookieParser());
 // To set cookies and access from server in user browser
 
+// routes import / here for file segregation
+import userRouter from "./routes/user.routes.js";
+
+// routes declaration / using middleware, we using router in another file
+app.use("/api/v1/users", userRouter);
+// /api/.. become prefix for all routes in this route.
+// Further route after prefix handle to 
+
+
+// should be defined as /api/v1/users to define as api and its version
+// http:localhost:8000/api/v1/users/register
+
 
 export { app };
