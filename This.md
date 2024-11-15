@@ -210,10 +210,26 @@ Writing `uploadOnCloudinary` method in optimal way
 
 ## Guide for Controllers and Routers with Debugging
 
-- Practicing modre controller make good problem solving
+- Practicing more controller make good problem solving
+- Create Controller function
+- Create Routes
+- Created API Endpoint in App
 
+## Logic Building in Register Controllers 
 
+- Step to perform Operation on Data
+get user details from frontend
+validation 
+check if user already exists: username, email
+check for images, check for avatar
+upload them to cloudinary: url
+Create user object(for mongodb) - create entry in db
+remove password and refresh token field from response
+check for user creation
+return response
 
+Creating controller for user
+##
 
 ## Notes:
 It is complex project it contains all concept

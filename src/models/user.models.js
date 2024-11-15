@@ -1,4 +1,4 @@
-import mongoose, {Schema} from "mongoose";
+import mongoose, { Schema } from "mongoose";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 
@@ -52,11 +52,10 @@ const userSchema = new Schema(
 // Check the condition
 userSchema.pre("save", async function(next) {
     // check is password modified or note
-    if(!this.isModified("password")) return next();
+    if(!this.isModified("password")) return next(); // this.password in string may problem
         // On What to do and how many rounds
-        this.password = bcyrpt.hash("this.password", 10);
+        this.password = await bcrypt.hash("this.password", 10);
         next();
-
 });
 // don't use arrow function, it doesn't have `this` reference, 
 // here is must to know the context
@@ -81,7 +80,7 @@ userSchema.methods.generateAccessToken = function() {
         {
             expiresIn: process.env.ACCESS_TOKEN_EXPIRY
         }
-    )
+    );
 }
 
 userSchema.methods.generateRefreshToken = function() {
@@ -93,9 +92,7 @@ userSchema.methods.generateRefreshToken = function() {
         {
             expiresIn: process.env.REFRESH_TOKEN_EXPIRY
         }
-    )
+    );
 }
-
-
 
 export const User = mongoose.model("User", userSchema);
