@@ -19,7 +19,7 @@ const userSchema = new Schema(
             lowercase: true,
             trim: true,
         },
-        fullname: {
+        fullName: {
             type: String,
             required: true,
             trim: true,
@@ -34,7 +34,7 @@ const userSchema = new Schema(
         }, 
         watchHistory: [
             {
-               type: Schema.Types.ObjectId,
+                type: Schema.Types.ObjectId,
                 ref: "Video" 
             }   
         ],
@@ -54,7 +54,7 @@ userSchema.pre("save", async function(next) {
     // check is password modified or note
     if(!this.isModified("password")) return next(); // this.password in string may problem
         // On What to do and how many rounds
-        this.password = await bcrypt.hash("this.password", 10);
+        this.password = await bcrypt.hash(this.password, 10);
         next();
 });
 // don't use arrow function, it doesn't have `this` reference, 

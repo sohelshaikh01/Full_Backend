@@ -231,7 +231,39 @@ return response
 Creating controller for user register using
 - ApiError, ApiReponse, Uploading Files
 
-##
+## How to user Postman Professionally
+
+- Creating collection so can pass through frontend
+- Write Path and set Request type to POST
+- Choose Body / Form which make able to send files.
+
+- ThunderClient Free Version - No File Sending Support
+
+- In response use avatar image url to show
+- Debug the coverImageLocalPath Methods
+
+- Create and name to environment in postman
+- To use similar url string all places
+- `http://localhost:8000/api/v1/`
+- Mark it and share in box before use
+- use {{ variable name }} to get the in String
+- ~{{server}}/users1/register
+
+## Access Refresh Token and Middleware and Queries.
+
+Access Token: Short lived
+- validate for some
+
+Refresh Token: Long lived
+- validate with refresh token if have access token
+
+Check password validation in Login User
+- Method created to store generated tokens 
+
+
+## Access and Refresh Token
+
+
 
 ## Notes:
 It is complex project it contains all concept
