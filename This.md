@@ -228,7 +228,9 @@ remove password and refresh token field from response
 check for user creation
 return response
 
-Creating controller for user
+Creating controller for user register using
+- ApiError, ApiReponse, Uploading Files
+
 ##
 
 ## Notes:
