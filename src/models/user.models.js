@@ -51,7 +51,7 @@ const userSchema = new Schema(
 // If any change in data reruns function and change the password.
 // Check the condition
 userSchema.pre("save", async function(next) {
-    // check is password modified or note
+    // check is password modified or not
     if(!this.isModified("password")) return next(); // this.password in string may problem
         // On What to do and how many rounds
         this.password = await bcrypt.hash(this.password, 10);
@@ -69,7 +69,7 @@ userSchema.methods.isPasswordCorrect = async function(password) {
 }
 
 userSchema.methods.generateAccessToken = function() {
-    jwt.sign(
+    return jwt.sign(
         {
             _id: this._id,
             email: this.email,
@@ -84,7 +84,7 @@ userSchema.methods.generateAccessToken = function() {
 }
 
 userSchema.methods.generateRefreshToken = function() {
-    jwt.sign(
+    return jwt.sign(
         {
             _id: this._id,
         },

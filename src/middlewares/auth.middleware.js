@@ -12,25 +12,24 @@ export const verifyJWT = asyncHandler( async (req, res, next) => {
         // May user send cookie in header
     
         if(!token) {
-            throw new ApiError(401, "Unauthorized User");
+            throw new ApiError(401, "Unauthorized User trying to logout");
         }
     
-        const decodedToken = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET); // may need await
+        const decodedToken = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
     
         const user = await User.findById(decodedToken?._id)
         .select("-password refreshToken");
     
         if(!user) {
             // TODO: next video(15) discuss about Frontend
-            throw new ApiError(401, "Invalid Access Tokne");
+            throw new ApiError(401, "Invalid Access Token");
         }
     
         req.user = user;
         next();
     } catch (error) {
-        throw new ApiError(401, "Invalid Access Token");
+        throw new ApiError(401, error?.message || "Invalid Access Token");
     }
 
 });
-
 // req has cookie access through cookieparser

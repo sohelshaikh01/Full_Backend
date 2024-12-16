@@ -11,7 +11,7 @@ app.use(cors({
 
 // Config that accepting json & limit data size
 app.use(express.json({limit: "16kb"}));
-// For coverting things like special characters
+// For converting things like special characters
 // extended means can given more objects inside objects
 app.use(express.urlencoded({extended: true, limit: "16kb"}));
 

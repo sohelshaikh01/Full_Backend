@@ -2,7 +2,7 @@
 
 Learning Full Complex Backend With Project
 
-## Starting Full Backend Project
+## Starting Full Backend Project ---
 
 - Creating git repository of Project
 - Model in app are designed will for future scope
@@ -19,7 +19,7 @@ Project Initialize repository
 - then put no cloudinary
 
 
-### git/temp empty folder 
+### public/temp empty folder 
 - Create `.gitkeep` file to track this
 
 
@@ -33,7 +33,7 @@ File to keep some variables values.
 Not to push on git
 create .env.sample
 
-## Project Initialization
+## Project Initialization ---
 
 ### Creating files
 Folder and Files in it
@@ -59,7 +59,7 @@ For maintaining same code structure
 - Add and configure files
 - `.prettierrc` and `.prettierignore` Not touch files included in this 
 
-## Starting Database Connection
+## Starting Database Connection ---
 
 ### MongoDB Atlas Database
 
@@ -89,7 +89,6 @@ Two Methods to call database:
 - All Code in index.file
 - Seprate file for Database call
 
-
 ### Installations
 
 `npm i mongoose express dotenv`
@@ -117,7 +116,7 @@ Environment Variables: As early as possible in your application, import and conf
 So go in package.json
 
 
-## Custom API Responses and API handling
+## Custom API Responses and API handling ---
 
 - Creating express app listen after db call
 - Understanding API Requests and Responses
@@ -136,7 +135,7 @@ cors
 - client hit url and then it get request and res => any res to send
 - To check who is capable to take this response this checking in between is known as middleware
 
-### Elements in API 
+- Elements in API 
 (err, req, res, next)
 - When `next` is used it is about middleware.
 
@@ -145,14 +144,14 @@ Creating generalize wrapper function that gets the code and executes in wanted f
 - Creating utils/`asyncHandler`.
 
 ### Standarizing API response and Error Formats
-- Learn node api errors 
+- Learn node api errors
 - Overwriting their properties as use
-- utils/`ApiError`.
+- utils/`ApiError.js`.
 - Writing class to overwrite `Error` properties as need.
 
-- Creating another ApiReponse File
+- Creating another `ApiReponse.js` File
 
-## User and Video model with hooks and JWT
+## User and Video model with hooks and JWT ---
 
 ### Creating Models Files
 
@@ -182,7 +181,7 @@ Access token is not to save in Database
 Refresh token is to save Database
 
 
-## How to Upload Files in Backend
+## How to Upload Files in Backend ---
 
 Can upload any files like videos, pdf
 There is no more file upload in fronted in form
@@ -206,16 +205,16 @@ Writing `uploadOnCloudinary` method in optimal way
 - Creating `middleware` using `multer` like utility
 
 
-## Learning About HTTP 
+## Learning About HTTP Chapter--- 
 
-## Guide for Controllers and Routers with Debugging
+## Guide for Controllers and Routers with Debugging ---
 
 - Practicing more controller make good problem solving
 - Create Controller function
 - Create Routes
 - Created API Endpoint in App
 
-## Logic Building in Register Controllers 
+## Logic Building in Register Controllers ---
 
 - Step to perform Operation on Data
 get user details from frontend
@@ -231,7 +230,7 @@ return response
 Creating controller for user register using
 - ApiError, ApiReponse, Uploading Files
 
-## How to user Postman Professionally
+## How to user Postman Professionally ---
 
 - Creating collection so can pass through frontend
 - Write Path and set Request type to POST
@@ -245,7 +244,7 @@ Creating controller for user register using
 - Create and name to environment in postman
 - To use similar url string all places
 - `http://localhost:8000/api/v1/`
-- Mark it and share in box before use
+- Mark it and share in box before use to using location
 - use {{ variable name }} to get the in String
 - ~{{server}}/users1/register
 
@@ -258,10 +257,33 @@ Refresh Token: Long lived
 - validate with refresh token if have access token
 
 Check password validation in Login User
-- Method created to store generated tokens 
+- Method created to store generated tokens
+
+Create /login and /logout with auth.middleware
+
+- login endpoint need to give data in json methods
+- logout endpoint is not working 
+
+<!-- 
+    refresh token saved in database for long time and used to create accesstoken from it to loggin user without needing username and password
+    access token is for short period of time and create new access token
+-->
+
 
 
 ## Access and Refresh Token
+
+Creating /login and /logout endpoints
+
+<!-- At 16 video: Check Login and Logout Endpoint working properly -->
+<!-- In this video discussion is remains on logout and how to use tokens in it. -->
+
+## Writing Access and Refresh Token Functionallities
+
+Video No 16: 
+
+- Creating refresh Token and it validity
+- Creating access Token using refresh token
 
 
 
