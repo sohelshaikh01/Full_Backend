@@ -285,6 +285,12 @@ Video No 16:
 - Creating refresh Token and it validity
 - Creating access Token using refresh token
 
+## Writing Update controller for user
+
+Video No 17:
+
+- Writing Edit functionality
+
 
 
 ## Notes:
