@@ -29,4 +29,17 @@ router.route("/logout").post(verifyJWT, logoutUser);
 
 router.route("/refresh-token").post(refreshAccessToken);
 
+// update routes
+router.router("/update-password").post(verifyJWT, changeCurrentPassword);
+
+router.router("/get-user").post(verifyJWT, getCurrentUser);
+
+router.router("/update-details").post(verifyJWT, updateAccountDetails);
+
+router.router("/update-avatar").post(verifyJWT, updateUserAvatar);
+
+router.router("/update-coverimage").post(verifyJWT, updateUserCoverImage);
+
+
+
 export default router;

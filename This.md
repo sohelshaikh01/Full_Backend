@@ -289,9 +289,21 @@ Video No 16:
 
 Video No 17:
 
+- Adding Subscription Model
 - Writing Edit functionality
+- Adding Controllers
+    changeCurrentPassword, 
+    getCurrentUser, 
+    updateAccountDetails
+    updateUserAvatar
+    updateUserCoverImage
+<!-- 19:00 authmiddleware existance explained -->
+- For file write another controller, from user Specific
+it is better approach to write another controllers for file
+- Check Middlewares: User login, Multer.
 
 
+<!-- authmiddleware is used to get user and takes userId from it -->
 
 ## Notes:
 It is complex project it contains all concept
