@@ -324,11 +324,23 @@ Write subpipelines
 
 ## Summary of this Backend series --- Video No 21
 
-## Some addition concepts in this videos
+What we have done till now
+Where we have to go from now: Create and try creating features from own.
+Add new controllers and test them by own
+
+## Some addition concepts in this videos --- Video No 22
+
+Creating remaining models
+- How routes created were tested
+- logout controller: change undefined to 1
+<!-- This removes the field from document: use unset operator -->
+- creating remaing models
+playlist, likes, controller, tweets
+
+
+
 
 <!-- authmiddleware is used to get user and takes userId from it -->
-
-
 
 ## Notes:
 It is complex project it contains all concept
