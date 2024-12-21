@@ -311,6 +311,7 @@ const changeCurrentPassword = asyncHandler( async (req, res) => {
 
 
 const getCurrentUser = asyncHandler( async (req, res) => {
+
     return res
     .status(200)
     .json(200, req.user, "current user fetched successfully");
@@ -346,6 +347,7 @@ const updateAccountDetails = asyncHandler( async(req, res) => {
 
 });
 
+
 const updateUserAvatar = asyncHandler( async(req, res) => {
     const avatarLocalPath = req.file?.path; // req.file (not files here) for single file
 
@@ -377,6 +379,7 @@ const updateUserAvatar = asyncHandler( async(req, res) => {
 
 });
 
+
 const updateUserCoverImage = asyncHandler( async(req, res) => {
     const coverImageLocalPath = req.file?.path; // req.file (not files here) for single file
 
@@ -405,6 +408,83 @@ const updateUserCoverImage = asyncHandler( async(req, res) => {
     .json(
         new ApiResponse(200, user, "Cover image updated successfully")
     )
+
+});
+
+
+const getUserChannelProfile = asyncHandler( async(req, res) => {
+
+    const { username } = req.params;
+
+
+    if( !(username.trim()))  {
+        throw new ApiError(400, "Username is missing");
+    }
+
+    const channel = await User.aggregate([
+        {
+            $match: {
+                username: username?.toLowerCase()
+            }, // getting user
+        },
+        { // using lookup to get its subscribers
+            $lookup: {
+                // model in lowercase and plural in database
+                from: "subscriptions",
+                localField: "_id",
+                foreignField: "channel", // what basis to get docs
+                as: "subscribers"  // name of outcome new document
+            }
+        },
+        {
+            $lookup: {
+                from: "subscriptions",
+                localField: "_id",
+                foreignField: "subscriber",
+                as: "subscribedTo"
+            }
+        },
+        {
+            $addFields: { // To Add Additional fields
+                subscribersCount: {
+                    $size: "$subscribers" // using $ because it is field now
+                },
+                channelisSubscribedToCount: {
+                    $size: "$subscribedTo"
+                },
+                isSubscribed: { // check whether the user is subscribed or not
+                    $cond: {
+                        if: {$in: [req.user?._id, "$subscribers.subscriber"]},
+                        then: true,
+                        else: false
+                    }
+                }
+            }
+        },
+        {
+            $project: { // showing selected this to further access
+                fullName: 1,
+                username: 1,
+                subscribersCount: 1,
+                channelisSubscribedToCount: 1,
+                avatar: 1,
+                coverImage: 1,
+                email: 1
+            }
+        }
+    ]);
+    // It returns array after using aggregate
+
+    if(!channel?.length) {
+        throw new ApiError(404, "channel does not exists");
+    }
+
+    return res
+    .status(200)
+    .json(
+        new ApiResponse(200, channel[0], "User channel fetched successfully")
+    )    
+
 
 });
 

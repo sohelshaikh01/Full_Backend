@@ -289,6 +289,8 @@ Video No 16:
 
 Video No 17:
 
+// TODO: Delete old image (url in Cloudinary)
+
 - Adding Subscription Model
 - Writing Edit functionality
 - Adding Controllers
@@ -302,8 +304,24 @@ Video No 17:
 it is better approach to write another controllers for file
 - Check Middlewares: User login, Multer.
 
+## Understand the subscription schema
+
+Video No 18: 
+
+Understanding how subcription login work
+How to get channel Subscribers
+How to get subscribed channel of user
+
+## Learn MongoDB Aggregation pipelines
+
+Video No 19:
+
+Understanding pipelines
+Created getUserChannelProfile controller
+
 
 <!-- authmiddleware is used to get user and takes userId from it -->
+
 
 ## Notes:
 It is complex project it contains all concept
