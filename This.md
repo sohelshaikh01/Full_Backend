@@ -320,10 +320,14 @@ Write subpipelines
 - We store video ids in array in user documents
 
 - Added GetWatchHistory Controller
-
 - Working on Routes to adding till now created
 
+## Summary of this Backend series --- Video No 21
+
+## Some addition concepts in this videos
+
 <!-- authmiddleware is used to get user and takes userId from it -->
+
 
 
 ## Notes:

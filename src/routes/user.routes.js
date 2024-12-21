@@ -51,7 +51,8 @@ router.route("/update-account").patch(verifyJWT, updateAccountDetails);
 
 router.route("/update-avatar").patch(verifyJWT, upload.single("avatar"), updateUserAvatar);
 
-router.route("/update-coverimage").patch(verifyJWT, upload,single("/coverImage"), updateUserCoverImage);
+router.route("update-coverimage").patch(verifyJWT, upload,single("/coverImage"), updateUserCoverImage);
+// This may not need / in this route
 
 router.route("/c/:username").get(verifyJWT, getUserChannelProfile);
 
