@@ -285,9 +285,7 @@ Video No 16:
 - Creating refresh Token and it validity
 - Creating access Token using refresh token
 
-## Writing Update controller for user
-
-Video No 17:
+## Writing Update controller for user --- Video No 17:
 
 // TODO: Delete old image (url in Cloudinary)
 
@@ -304,21 +302,24 @@ Video No 17:
 it is better approach to write another controllers for file
 - Check Middlewares: User login, Multer.
 
-## Understand the subscription schema
-
-Video No 18: 
+## Understand the subscription schema --- Video No 18: 
 
 Understanding how subcription login work
 How to get channel Subscribers
 How to get subscribed channel of user
 
-## Learn MongoDB Aggregation pipelines
-
-Video No 19:
+## Learn MongoDB Aggregation pipelines --- Video No 19:
 
 Understanding pipelines
 Created getUserChannelProfile controller
 
+## How to write sub pipelines and routes --- Video No 20
+
+Write subpipelines
+- For getting User watch History
+- We store video ids in array in user documents
+
+- Added GetWatchHistory Controller
 
 <!-- authmiddleware is used to get user and takes userId from it -->
 

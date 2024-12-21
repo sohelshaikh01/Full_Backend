@@ -490,6 +490,63 @@ const getUserChannelProfile = asyncHandler( async(req, res) => {
 
 
 
+const getWatchHistory = asyncHandler( async(req, res) => {
+
+    const user = await User.aggregate([
+        {
+            match: {
+                _id: new mongoose.Types.ObjectId(req.user._id)
+                // here _id string not auto converted to mongoDB ObjectId
+                // code goes directly
+            }
+        }, // we user here
+        { // we have to get watch history now
+            $lookup: {
+                from: "videos", // which model to access
+                localField: "watchHistory", // user model field to store
+                foreignField: "_id", // video model field
+                as: "watchHistory", // output array set
+                pipeline: [
+                    {   // now in videos doc
+                        $lookup: {
+                            from: "users",
+                            localField: "owner",
+                            foreignField: "_id",
+                            as: "owner", 
+                            // All below data is stored in owner array
+                            // It has to modified for frontend easyness
+                            pipeline: [
+                                {
+                                    $project: {
+                                        fullName: 1,
+                                        username: 1,
+                                        avatar: 1
+                                    }
+                                }
+                            ] // This pipelines can also be written on another stages
+                        }
+                    },
+                    {
+                        $addFields: {
+                            owner: {
+                                $first: "$owner"
+                            }
+                        }
+                    }
+                ]
+            } 
+        }
+    ]); // watchHistory -> videos -> User or Video owner -> owner details
+
+
+    return res
+    .status(200)
+    .json(
+        new ApiResponse(200, user[0].watchHistory, "Watch History Fetched Successfully")
+    )
+
+});
+
 export { 
     registerUser,
     loginUser,
