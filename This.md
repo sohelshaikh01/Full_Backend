@@ -321,6 +321,8 @@ Write subpipelines
 
 - Added GetWatchHistory Controller
 
+- Working on Routes to adding till now created
+
 <!-- authmiddleware is used to get user and takes userId from it -->
 
 
